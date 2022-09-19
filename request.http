@@ -1,0 +1,43 @@
+###
+GET http://localhost:5000/api/data HTTP/1.1 
+
+###
+POST http://localhost:5000/GuiaRegister HTTP/1.1 
+Content-Type: application/json
+
+{
+    "dni":"123456789",    
+    "nombre":"123456789",
+    "apellido":"123456789",
+    "IdIdioma":"1"
+    
+}
+
+###
+GET http://localhost:5000/ListarIdiomasGuias HTTP/1.1 
+
+###
+PUT  http://localhost:5000/api/data/7 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "data":"Id numero 7",
+
+
+
+
+
+}
+
+###
+POST http://localhost:5000/InscripcionCreate HTTP/1.1 
+Content-Type: application/json
+
+{
+    "nombre":"pio",
+    "dni": "999999",
+    "apellido": "pablo",
+    "mail": "papa@hola", 
+    "cantPersonas": "5",
+    "idVisitaGuiada": "1"
+}
