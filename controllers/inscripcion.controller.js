@@ -5,10 +5,13 @@ import { VisitanteRegister } from "./visitante.contoller.js";
 export const InscripcionCreate = async(req, res) =>{
     try {
         /************************************************************/
+		const TimestampNow = new Date();
+		const LocalDate = `${TimestampNow.getFullYear()}-${(TimestampNow.getMonth())+1}-${TimestampNow.getDate()}`;
+		
         const idVisitante = await VisitanteRegister(req);
         await conexion.query("INSERT INTO `inscripcion`(`idInscriptor`, `idVisitante`, `idVisitaGuiada`) VALUES (?, ?, ?)",
         {
-            replacements: [4, idVisitante[0], req.body.idVisitaGuiada],
+            replacements: [4, idVisitante[0], req.body.idVisitaGuiada, LocalDate],
         });
         res.status(201).json({msg:"Inscripcion Registrado"});
         /************************************************************/
